@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/HTTP-Tool-Java.iml" filepath="$PROJECT_DIR$/.idea/modules/HTTP-Tool-Java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/HTTP-Tool-Java_main.iml" filepath="$PROJECT_DIR$/.idea/modules/HTTP-Tool-Java_main.iml" group="HTTP-Tool-Java" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/HTTP-Tool-Java_test.iml" filepath="$PROJECT_DIR$/.idea/modules/HTTP-Tool-Java_test.iml" group="HTTP-Tool-Java" />
+    </modules>
+  </component>
+</project>
