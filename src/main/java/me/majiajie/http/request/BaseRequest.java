@@ -1,8 +1,8 @@
 package me.majiajie.http.request;
 
 
+import io.reactivex.Observable;
 import me.majiajie.http.MT;
-import me.majiajie.http.Result;
 import me.majiajie.http.callback.HttpCallBack;
 import me.majiajie.http.progress.ProgressHelper;
 import me.majiajie.http.progress.ProgressRequestBody;
@@ -132,34 +132,15 @@ public class BaseRequest
         }
 
         @Override
-        public Result execute() {
+        public Observable<Response> execute() {
 
             warp();
 
-            Result result = new Result();
-
-            try
-            {
+            return Observable.create(emitter -> {
                 Response response = mOkHttpClient.newCall(requestBuild.build()).execute();
-                if(response.isSuccessful())
-                {
-                    result.setBody(response.body().string());
-                    result.setCode(response.code());
-                    result.setMessage("请求成功!");
-                }
-                else
-                {
-                    result.setCode(response.code());
-                    result.setMessage(HttpStatusCode.getMsgByCode(response.code()));
-                }
-            }
-            catch (IOException e)
-            {
-                e.printStackTrace();
-                result.setCode(-1);
-                result.setMessage("读取服务端返回数据失败");
-            }
-            return result;
+                emitter.onNext(response);
+                emitter.onComplete();
+            });
         }
 
         @Override

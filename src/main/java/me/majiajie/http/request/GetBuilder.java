@@ -1,8 +1,9 @@
 package me.majiajie.http.request;
 
 
-import me.majiajie.http.Result;
+import io.reactivex.Observable;
 import me.majiajie.http.callback.HttpCallBack;
+import okhttp3.Response;
 
 import java.util.Map;
 
@@ -41,7 +42,7 @@ public interface GetBuilder {
     /**
      * 在当前线程执行
      */
-    Result execute();
+    Observable<Response> execute();
 
     /**
      * 在子线程执行

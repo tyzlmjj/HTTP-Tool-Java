@@ -1,12 +1,13 @@
 package me.majiajie.http.request;
 
 
-import me.majiajie.http.Result;
+import io.reactivex.Observable;
 import me.majiajie.http.callback.HttpCallBack;
 import me.majiajie.http.progress.ProgressRequestBody;
 import me.majiajie.http.progress.ProgressResponseBody;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
+import okhttp3.Response;
 
 import java.util.Map;
 
@@ -87,7 +88,7 @@ public interface PostBuilder{
     /**
      * 在当前线程执行
      */
-    Result execute();
+    Observable<Response> execute();
 
     /**
      * 在子线程执行
